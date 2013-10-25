@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+    <h1>Ember-Github Error/Loading Substates Demo</h1>
+
+    <form {{action 'lookup' username on='submit'}}>
+      Enter a GitHub username: 
+      {{input value=username}}
+      <input type='submit' value='Go!' />
+    </form>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="github">
+    <h2>Displaying info for GitHub user {{login}}</h2>
+
+    <p>
+      {{link-to 'Repos' 'github.repos'}}
+      {{link-to 'Organizations' 'github.orgs'}}
+      {{link-to 'Nonsense' 'github.nonsense'}}
+    </p>
+
+    {{outlet}}
+
+    <footer>All data courtesy of GitHub</footer>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="github/repos">
+    <h3>Repos</h3>
+
+    <ul>
+      {{#each}}
+        <li><a href="{{{unbound html_url}}}" target="_blank">{{name}}</a></li>
+      {{/each}}
+    </ul>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="github/orgs">
+    <h3>Organizations</h3>
+
+    <ul class="organizations">
+      {{#each}}
+        <li>
+          <img src="{{{unbound avatar_url}}}" />
+          <span>{{login}}</span>
+        </li>
+      {{/each}}
+    </ul>
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/x-handlebars" data-template-name="_loading">
+    <h3 class="searching">Searching...</h3>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="_github/loading">
+    <h3 class="looking">Looking up info...</h3>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="_error">
+    <h3 class="error">GitHub User Lookup Error: {{statusText}}</h3>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="_github/error">
+    <h3 class="error">GitHub Data Fetching Error: {{statusText}}</h3>
+  </script>
+
+
+  <!--
+  <a href="https://github.com/machty/ember-loading-error-substates-demo"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+  -->
+
+  <script src="js/libs/jquery-1.9.1.js"></script>
+  <script src="js/libs/handlebars-1.0.0.js"></script>
+  <script src="js/libs/ember-1.2.0-beta.1.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+/* Put your CSS here */
+html, body {
+    margin: 20px;
+}
+
+ul.organizations {
+	list-style: none;
+}
+
+ul.organizations li {
+	display: block;
+	margin: 15px 0;
+	background: #eeeeee;
+	padding: 10px;
+	border-radius: 10px;
+	font-size: 28px;
+}
+
+ul.organizations li > img {
+	margin-right: 12px;
+	max-height: 80px;
+}
+
+ul.organizations li > * {
+	vertical-align: middle;
+}
+
+.searching, .looking, .error {
+	padding: 20px;
+}
+
+.error {
+	background: #ffeeee;
+}
+
+.searching {
+	background: #eeffee;
+}
+
+.looking {
+	background: #eeeeff;
+}
